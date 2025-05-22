@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalstammdaten</title>
+    <style>
+        body {
+            font-family: segoe ui;
+            line-height: 1.6;
+            margin: 0;
+            padding: 100px;
+            background-color: #005f20;
+            background-image: url('https://i.ibb.co/Z17CKtzG/Post-image-CM-TT-25-Published-1024x535.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;  
+            background-size: cover;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .email-display {
+            background-color: #005f20;
+            color: #ffffff;
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 0px solid #0066cc;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            font-size: 16px;
+
+        }
+
+       h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 14px;
+           font-weight: normal;
+
+        }
+       
+      
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+           font-size: 14px;
+           font-weight: normal;
+        }
+
+        .checkbox-text {
+            margin-top: 0;
+        }
+
+        button {
+            background-color: #005f20;
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #bf873d;
+        }
+
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        #status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .success {
+            background-color: #155724;
+            color: #ffffff;
+            border-left: 4px solid #155724;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-left: 0px solid #721c24;
+        }
+
+        .loading {
+            background-color: #e2f3f8;
+            color: #0c5460;
+            border-left: 0px solid #0c5460;
+        }
+
+        .required:after {
+            content: " *";
+            color: red;
+        }
+
+        .file-info {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+              <img src="https://i.ibb.co/2H7C5Z1/RNE-Logo.png" alt="RNE-Logo" border="0" style="width:120px;height:40px;">
+        <h1>Personal Data</h1>
+        <h2> We are really looking forward to your start with us. In order to prepare your contract and formalities, please complete this form with your current personal data, address as well as bank details. Please provide us with the following documents as well: <br><br>
+- Police Clearance Certificate (Strafregisterauszug) not older than 3 months<br>
+- Certificate of Residence (Meldezettel)<br>
+- if required to work in Austria: Work Permit (both sides)<br>
+- Certificate(s) of completion of your education (Ausbildungsnachweise)<br>
+- Employment References or confirmations of previous emploment periods<br>
+</h2>
+
+        <div class="email-display">
+            E-Mail: <span id="emailDisplay">Loading...</span><br>
+            <small class="form-hint">
+                📌 Your e-mail address serves us as technical identification. Therefore it cannot be changed.
+            </small>
+        </div>
+
+        <form id="personalstammdatenformular">
+            <input type="hidden" id="email" name="email" value="">
+
+            <div class="form-group">
+                <label for="streetNo" class="required">Street No.</label>
+                <input type="text" id="streetNo" name="streetNo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="zipCode" class="required">Zip Code</label>
+                <input type="text" id="zipCode" name="zipCode" required>
+            </div>
+
+            <div class="form-group">
+                <label for="city" class="required">City</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+
+            <div class="form-group">
+                <label for="country" class="required">Country</label>
+                <input type="text" id="country" name="country" required>
+                                <div class="file-info">i.e. Austria, Switzerland, Germany (please do not use any abbreviations)</div>
+            </div>
+            <div class="form-group">
+                <label for="iban" class="required">IBAN</label>
+                <input type="text" id="iban" name="iban" required>
+            </div>
+
+            <div class="form-group">
+                <label for="bic" class="required">BIC</label>
+                <input type="text" id="bic" name="bic" required>
+            </div>
+
+            <div class="form-group">
+                <label for="bankName" class="required">Bank Name</label>
+                <input type="text" id="bankName" name="bankName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="accountHolder" class="optional">Different Account Holder</label>
+                <input type="text" id="accountHolder" name="accountHolder">
+            </div>
+
+            <div class="form-group">
+                <label for="svNumber">Social Insurance Number </label>
+                <input type="text" inputmode="numeric" id="svNumber" name="svNumber">
+                <div class="file-info">If you do not have an Austrian Social Insurance Number, please leave this empty.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="passport" class="required">ID / Passport</label>
+                <input type="file" id="passport" name="passport" accept=".pdf,.doc,.docx,.jpeg,.png" required>
+                <div class="file-info">Supported formats: PDF, DOC, DOCX, JPEG, PNG. Max. size: 10MB</div>
+            </div>
+
+            <div class="form-group">
+                <label for="adddocuments">Additional Documents</label>
+                <input type="file" id="adddocuments" name="adddocuments" accept=".pdf,.doc,.docx,.jpeg,.png" multiple>
+                <div class="file-info">Supported formats: PDF, DOC, DOCX, JPEG, PNG.  Max. size: 10MB</div>
+            </div>
+
+            <button type="submit" id="submitButton"> Provide Data 📩 </button>
+        </form>
+
+        <div id="status"></div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const urlParams = new URLSearchParams(window.location.search);
+                const email = urlParams.get('email') || 'DEFAULT_EMAIL';
+                document.querySelector('input[name="email"]').value = email;
+                document.getElementById('emailDisplay').textContent = email;
+            });
+
+            document.getElementById('personalstammdatenformular').addEventListener('submit', async function (event) {
+                event.preventDefault();
+
+                const statusElement = document.getElementById('status');
+                const submitButton = document.getElementById('submitButton');
+
+                statusElement.textContent = 'Your data will be transmitted...';
+                statusElement.className = 'loading';
+                statusElement.style.display = 'block';
+                submitButton.disabled = true;
+
+                const streetNo = document.getElementById('streetNo').value;
+                const zipCode = document.getElementById('zipCode').value;
+                const city = document.getElementById('city').value;
+                const email = document.querySelector('input[name="email"]').value;
+                const country = document.getElementById('country').value;
+                const iban = document.getElementById('iban').value;
+                const bic = document.getElementById('bic').value;
+                const bankName = document.getElementById('bankName').value;
+                const accountHolder = document.getElementById('accountHolder').value;
+                const svNumber = document.getElementById('svNumber').value;
+
+                const passportInput = document.getElementById('passport');
+                const adddocumentsInput = document.getElementById('adddocuments');
+
+                if (!passportInput.files[0]) {
+                    statusElement.textContent = 'Please upload your ID document';
+                    statusElement.className = 'error';
+                    submitButton.disabled = false;
+                    return;
+                }
+
+                const MAX_FILE_SIZE = 10 * 1024 * 1024;
+                if (passportInput.files[0].size > MAX_FILE_SIZE ||
+                    (adddocumentsInput.files[0] && adddocumentsInput.files[0].size > MAX_FILE_SIZE)) {
+                    statusElement.textContent = 'File size exceeds 10MB limit. Please upload smaller files.';
+                    statusElement.className = 'error';
+                    submitButton.disabled = false;
+                    return;
+                }
+
+                const readFileAsBase64 = (file) => {
+                    return new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onload = () => resolve(reader.result.split(',')[1]);
+                        reader.onerror = reject;
+                        reader.readAsDataURL(file);
+                    });
+                };
+
+                try {
+                    const passportBase64 = await readFileAsBase64(passportInput.files[0]);
+
+let adddocumentsArray = [];
+if (adddocumentsInput.files.length > 0) {
+    for (let file of adddocumentsInput.files) {
+        const base64 = await readFileAsBase64(file);
+        adddocumentsArray.push({
+            name: file.name,
+            type: file.type,
+            content: base64
+        });
+    }
+}
+
+                    const requestData = {
+                        email,
+                        streetNo,
+                        zipCode,
+                        city,
+                        country,
+                        iban,
+                        bic,
+                        bankName,
+                        accountHolder,
+                        svNumber,
+                        passport: {
+                            name: passportInput.files[0].name,
+                            type: passportInput.files[0].type,
+                            content: passportBase64
+                        },
+...(adddocumentsArray.length > 0 && { adddocuments: adddocumentsArray })
+};
+
+                    const powerAutomateUrl = 'https://prod-93.westeurope.logic.azure.com:443/workflows/04eb29c5a7c847dc94b1afa5894e33cd/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=JcaydQ14UdrPPKIyuIAoeAIm0c_t9kiUaYZTdVFvcRM';
+
+                    const response = await fetch(powerAutomateUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(requestData)
+                    });
+
+                    const responseText = await response.text();
+                    let data;
+                    try {
+                        data = responseText ? JSON.parse(responseText) : {};
+                    } catch (e) {
+                        data = { message: responseText || 'Success' };
+                    }
+
+                    statusElement.textContent = 'Thank you for your support - your data has been successfully submitted 🎉';
+                    statusElement.className = 'success';
+                    document.getElementById('personalstammdatenformular').reset();
+
+                } catch (error) {
+                    console.error('Error:', error);
+                    statusElement.textContent = 'Error submitting data. Please try again later or contact recruiting@rne.eu directly';
+                    statusElement.className = 'error';
+                } finally {
+                    submitButton.disabled = false;
+                }
+            });
+        </script>
+    </div>
+</body>
+
+</html>
